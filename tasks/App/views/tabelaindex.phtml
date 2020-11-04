@@ -1,0 +1,49 @@
+<?php
+?>
+<section>
+<h3>Postagens:</h3>
+	<div class="table-responsive">
+		<table class="table table-hover table-sm">
+			<thead>
+				<tr>
+					
+					<th>Titulo</th>
+					<th>Conteúdo</th>
+					<th>Data</th>
+					<th>Prioridade</th>
+					<th>ID</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach($this->view->taskList as $taskItem):?>
+					<tr>
+					
+						<td><?=$taskItem['Titulo']?></td>
+						<td><?=$taskItem['Conteudo']?></td>
+						<td><?=date("d/m/Y", strtotime( $taskItem['Data']));?></td>
+						<td><?=$taskItem['Prioridade']?></td>
+						<td><?=$taskItem['ID']?></td>
+						<td><form method="POST"action="/alterar">
+							<input type="submit" name="editar" id="editar" value="Editar" class="btn btn-outline-primary">
+							<input type="hidden" name="Titulo" value=<?=$taskItem['Titulo']?>>
+							<input type="hidden" name="Conteudo" value=<?=$taskItem['Conteudo']?>>
+							<input type="hidden" name="Data" value=<?=$taskItem['Data']?>>
+							<input type="hidden" name="Prioridade" value=<?=$taskItem['Prioridade']?>>
+							<input type="hidden" name="ip" value=<?=$taskItem['ID']?>>
+						</form></td>
+						<td><form method="POST" action="/delete">	
+							 <input type="hidden" name="ip" value=<?=$taskItem['ID']?>>
+							 <input type="submit" name = "delet" id = "delet" value="Exluir"class="btn btn-outline-danger">
+						</form></td>
+
+					</tr>
+				<?php endforeach;?>
+			</tbody>
+		</table>
+
+		<style>
+
+
+	</div>
+</section>

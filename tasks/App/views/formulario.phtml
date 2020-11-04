@@ -1,0 +1,102 @@
+<section>
+
+
+				<style>
+
+
+				.table-add
+				{
+					font-family: '60', sans-serif;
+				  color:grey;
+				  font-size: 20px;
+				  margin-left: 50px;
+				  margin-bottom:  555px;
+				  
+				}
+
+				h3{
+					font-family: '20', sans-serif;
+				  color:grey;
+				  font-size: 40px;
+				  margin-left: 30px;
+				  margin-top: 30px;
+				  margin-bottom: 40px;
+				}
+				.table-texto
+				{	
+					margin: auto 
+					margin-bottom:15px;
+				}
+				textarea[id="Conteudo"]{
+					
+				margin: auto;
+				min-width: 1100px;
+				max-width: 2000px;
+				padding-bottom: 20%;
+				word-wrap: break-word;
+       			word-break: break-all;
+			
+	
+					
+				}
+				
+				</style>
+
+						
+	<h3>Criar Postagem</h3>
+
+	<!-- Formulário cadastrar as tarefas-->
+
+	<div class = "table-add"> 
+	<form method="POST" action="/add">
+		<!--Titulo Post-->
+		<div class = "table-titulo"> 
+		<input type="text" 
+			name="Titulo	" 
+			id="Titulo" 
+			placeholder="Titulo da postagem" 
+		/>
+		</div>
+		<br />
+		<!--Conteudo do post-->
+		<div class = "table-conteudo"> 
+
+		<textarea 
+		name="Conteudo" 
+		id="Conteudo" 
+		placeholder="Conteúdo da Postagem"
+		wrap="soft">
+
+		</textarea>
+
+		</div>
+		<br />
+		<!--Data da postagem-->
+		<div class = "table-texto"> 
+		<input type="date" 
+			name="Data" 
+			id="Data" 
+			placeholder="Data da postagem"
+
+		/>
+		</div>
+		<br />
+		<!--Prioridade/Priority-->
+		<div class = "table-texto"> 
+		<input type="radio" name="Prioridade" id="low" value="Baixa" />
+		<label for="low">Baixa</label>
+		
+		<input type="radio" name="Prioridade" id="medium" value="Média" />
+		<label for="medium">Média</label>
+		
+		<input type="radio" name="Prioridade" id="high" value="Alta" />
+		<label for="high">Alta</label>
+		<br />
+		</div>
+		<br />
+		
+		<!--Botão Salvar/Salvar-->
+		<input type="submit" name="save" id="save" value="Salvar" />
+	</form>
+</div>
+</section>

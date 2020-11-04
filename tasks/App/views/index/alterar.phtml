@@ -1,0 +1,113 @@
+<section>
+
+
+				<style>
+
+
+				.table-add
+				{
+					font-family: '60', sans-serif;
+				  color:grey;
+				  font-size: 20px;
+				  margin-left: 50px;
+				  margin-bottom:  555px;
+				  
+				}
+
+				h3{
+					font-family: '20', sans-serif;
+				  color:grey;
+				  font-size: 40px;
+				  margin-left: 30px;
+				  margin-top: 30px;
+				  margin-bottom: 40px;
+				}
+				.table-texto
+				{	
+					margin: auto 
+					margin-bottom:15px;
+				}
+				textarea[id="Conteudo"]{
+					
+				margin: auto;
+				min-width: 1100px;
+				max-width: 2000px;
+				padding-bottom: 20%;
+				word-wrap: break-word;
+       			word-break: break-all;
+			
+	
+					
+				}
+				
+				</style>
+
+						
+	<h3>Editar Postagem</h3>
+
+	<!-- Formulário cadastrar as tarefas-->
+
+	<?php $x=array_pop($_POST)?>
+	<?php array_shift($_POST)?>
+	<?php $titulo = array_shift($_POST)?>
+	<?php $conteudo = array_shift($_POST)?>
+	<?php $data = array_shift($_POST)?>
+	<?php $estado = array_shift($_POST)?>
+	<div class = "table-add"> 
+	<form method="POST" action="/edit">
+		<!--Titulo Post-->
+		<div class = "table-titulo"> 
+		<input type="text" 
+			name="Titulo	" 
+			id="Titulo" 
+			placeholder="Titulo da postagem"
+			value  = <?=$titulo?>
+		/>
+		</div>
+		<br />
+		<!--Conteudo do post-->
+		<div class = "table-conteudo"> 
+
+		<textarea 
+		name="Conteudo" 
+		id="Conteudo" 
+		placeholder="Conteúdo da Postagem"
+		wrap="soft"
+		>
+		<?=$conteudo?>
+		</textarea>
+
+		</div>
+		<br />
+		<!--Data da postagem-->
+		<div class = "table-texto"> 
+		<input type="date" 
+			name="Data" 
+			id="Data" 
+			placeholder="Data da postagem"
+			value = <?=$data?>
+		/>
+		</div>
+		<br />
+		<!--Prioridade/Priority-->
+		<div class = "table-texto"> 
+		
+		<input type="radio" name="Prioridade" id="low" value="Baixa"<?php if($estado == 'Baixa'){echo"CHECKED";}?> />
+		<label for="low">Baixa</label>
+		
+		<input type="radio" name="Prioridade" id="medium" value="Média" <?php if($estado == 'Média'){echo"CHECKED";}?> />
+		<label for="medium">Média</label>
+		
+		<input type="radio" name="Prioridade" id="high" value="Alta"<?php if($estado == 'Alta'){echo"CHECKED";}?> />
+		<label for="high">Alta</label>
+		
+		<br />
+		</div>
+		<br />
+		
+			<!--Botão Salvar/Salvar-->
+		<input type="submit" name="save" id="save" value="Alterar" />
+		<input type="hidden" name="ip" value= <?=$x?>>
+	</form>
+</div>
+</section>
